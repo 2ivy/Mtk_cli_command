@@ -68,13 +68,13 @@
 =====
 <h4 id="cd">cd</h4>
 
-`cd` 命令用来打开每一层级的功能列表，可以看做是打开文件夹。
+`cd` 命令用来打开每一层级的命令页。
 <h4 id="do">do</h4>
 
 `do` 命令用来再次输入前一次的命令。
 <h4 id="alias">alias(a)</h4>
 
-`alias` 用于对你常用的命令取别名。一般不常用，因为这个别名存储在本地设备，我们一般调试完一台机器就完了，频次不高，没有设置别名的需求。**可以使用括号中的简写代替本条命令~**
+`alias` 用于对你常用的命令取别名。目前已经对很多较长的命令设置了别名，括号中的的简写就是，**可以使用括号中的简写代替单条命令**。
 <h4 id="ls">ls</h4>
 
 `ls` 命令用来列出本页所有可用命令，直接按 `Enter` 也是一样的效果。
@@ -89,7 +89,7 @@
 `eeprom` 命令
 <h4 id="aud">aud</h4>
 
-`aud` 命令
+`aud` 命令用来调试声音相关的，比较重要的一个命令。[详见](#aud2)
 
 ---
 ---
@@ -100,27 +100,27 @@
 
 |命令|命令解释|
 |:---------|:----------|
-|[init(i)](#init)                |init
+|init(i)                |init
 |[enable(e)](#enable)              |enable/disable LVDS
-|[pattern(p)](#pattern)             |enable/disable test pattern
-|[pat chg(pc)](#pac_chg)            |enable/disable test multi pattern
+|pattern(p)             |enable/disable test pattern
+|pat chg(pc)            |enable/disable test multi pattern
 |[SetCustFRC(scf)](#SetCustFRC)        |Set Out Frame Rate
-|[OSTG in pattern(ostgpt)](#OSTG_in_pattern)|ostg paten
+|OSTG in pattern(ostgpt)|ostg paten
 |[list(l)](#list)                |show panel list
-|[query(q)](#query)               |dump pmx(scpos) info
+|query(q)               |dump pmx(scpos) info
 |[set(s)](#set)                 |set parameter
 |[post scaler(ps)](#post_scaler)        |set parameter
-|[diag(d)](#diag)                |verify hardware
-|[od(od)](#od)                 |od parameters
-|[vopll(vopll)](#vopll)           |vopll parameters
-|[dvopll(dvopll)](#dvopll)         |dvopll parameters
-|[if(if)](#if)                 |lvds interface parameters
-|[intr(intr)](#intr)             |interrupt
-|[uhd(u)](#uhd)                 |uhd
-|[pll(pll)](#pll)               |pll check
-|[debug_on(d_on)](#debug_on)         |PMX.d_on
-|[debug_off(d_off)](#debug_off)       |PMX.d_off
-|[debug_level(d_l)](#debug_level)       |PMX.d_l
+|diag(d)                |verify hardware
+|od(od)                 |od parameters
+|vopll(vopll)           |vopll parameters
+|dvopll(dvopll)         |dvopll parameters
+|if(if)                 |lvds interface parameters
+|intr(intr)             |interrupt
+|uhd(u)                 |uhd
+|pll(pll)               |pll check
+|debug_on(d_on)         |PMX.d_on
+|debug_off(d_off)       |PMX.d_off
+|debug_level(d_l)       |PMX.d_l
 
 <h4 id="enable">enable(e)</h4>
 
@@ -140,7 +140,7 @@ DTV.pmx>
 ```
 <h4 id="list">list(l)</h4>
 
-用于列出当前所有屏参。用法 `DTV.pmx>l`
+用于列出当前所有屏参。用法 `DTV.pmx>l`,会列出当前所有存在的屏参文件~
 <h4 id="set">set(s)</h4>
 
 屏参相关参数调试，`DTV.pmx>cd s`按回车后：
@@ -240,15 +240,16 @@ DTV.pmx.s>
 
 ---
 
-<h3 id="post_scaler">post scaler(ps)</h4>
+<h4 id="post_scaler">post scaler(ps)</h4>
 
 调节屏参里的HTotal、VTotal、Clock等，相关信息如下：
+
 |命令|命令解释|
-|:--------------|:-------------|
+|:---------------|:---------------|
 |[query status(q)](#query_status)        |query post scaler status
 |[ps hsynctest(ht)](#ps_hsynctest)       |hsync scaler timing test
 |[ps vsynctest(vt)](#ps_vsynctest)       |vsync scaler timing test
-|[ps set_data trigger(st)](#ps_set_data_trigger) |set data trigger
+|ps set_data trigger(st) |set data trigger
 
 <h4 id="query_status">query status(q)</h4>
 
@@ -285,3 +286,284 @@ type [1] Sync Front porch change
 type [2] Sync Back porch change
 ```
 调试方法如上实例。
+
+---
+---
+
+<h3 id="aud2">DTV.aud</h3>
+
+`aud`命令页进入后
+
+|命令|命令解释|
+|:---------------|:---------------|
+|init(i)                |Aud init
+|debug_on(d_on)         |AUD.d_on
+|debug_off(d_off)       |AUD.d_off
+|debug_level(d_l)       |AUD.d_l
+|setdec(s)              |Aud set decoding type
+|resume                 |Aud resume
+|pause                  |Aud pause
+|play                   |Aud play
+|stop                   |Aud stop
+|dual(dual)             |dual
+|tri(tridec)            |tri_dec
+|sync                   |Aud sync mode setting
+|stream(str)            |Playback stream src
+|query(q)               |Audio status query
+|m                      |Audio mixsound playback
+|mclip                  |Audio mixsound clip playback
+|pll1                   |Aud Pll1 setting
+|pll2                   |Aud Pll2 setting
+|pllpd                  |Aud Pll PoweDown
+|dsp                    |dsp command
+|[aproc(a)](#aproc)               |audio processor command
+|iec(iec)               |IEC related command
+|spost(spost)           |Spost related command
+|[uop](#uop)                    |audio uop
+|t                      |test
+|Clip                   |Aud Clip
+|atv                    |ATV command
+|dtv                    |DTV command
+|fmrdo                  |FM Radio command
+|io                     |I/O command
+|src                    |ASRC status query
+|dram                   |DRAM command
+|adecomx                |ADECOMX command
+|syncdbg(sd)            |AV Sync Debug command
+|dolby(db)              |Dolby related command
+|pm                     |Query play mute history
+|psrdbg(pd)             |Set HDMI Pre-Parser debug flag
+|soundbar(sb)           |Watch sound bar register
+|setdelay(setdelay)     |Set Vdep Delay Tbl
+|SpeedTest(speed)       |mm playback speed test
+|User mode set(mode)    |set user mode HP/LO
+|querybuffer(qb)        |query all audio buffer
+|util(util)             |audio util
+|aq(aq)                 |audio aq
+|suspend resume(sr)     |suspend resume audio
+|trace(trace)           |audio trace level switch
+
+<h4 id="uop">uop</h4>
+
+`uop`命令
+
+|命令|命令解释|
+|:---------------|:---------------|
+|DSP volume system(qv):  |DSP volume system setting
+|fine volume(fv):        |Audio Master Volume fine control
+|volume(v):              |Audio Volume control
+|vol_curve(vc):          |Audio Volume Curve Set
+|vol_curve_query(vcq):   |Audio Volume Curve Query
+|set volume table(svt):  |Audio Volume table set
+|fine ch volume(fcv):    |Audio Channel Volume fine control
+|ch volume(cv):          |Audio Channel Volume control
+|[ch vol gain(cvg)](#ch_vol_gain)       |Audio Channel Volume Gain control
+|[src volume(sv)](#src_volume)         |Audio Source Volume control
+|[src volume query(svq)](#src_volume_query)  |Query Audio Source Volume
+|equalizer(eq):          |EQ configuration
+|sbass(sbass):           |Bass/treble configuration
+|Silence set(silence):   |Slience fuction set
+|limiter(limiter):       |Limiter configuration
+|pl2cfg(pl2cfg):         |Prologic 2 related configuration
+|spkuop(spkuop):         |Speaker related configuration
+|AVC(a)                 |Automatic Volume Control
+|MonoDownmix(md):        |Downmix to mono
+|Karaoke mix ratio(kr):  |Karaoke mix ratio
+|balance(bl):            |Set L/R balance
+|virtualsurround(vs):    |Virtual Surround flag
+|vsurround config(vscfg):|Virtual Surround Config
+|peq(peq):               |Set PEQ
+|peqc(peqc):             |Set PEQ Configuration
+|peqc2(peqc2):           |Set PEQ Configuration
+|FF SPEED(speed):        |DSP Speed
+|DMixPos(dmp):           |Downmix channel position
+|MultiPair(MultiPair):   |Multi-Pair output
+|LR DownMix(LRDMix):     |LR DownMix
+|dump(dump):             |DSP Dump
+|DDCO(DDCO):             |DDCO setting
+|DDCO AGC(DDCOAgc):      |DDCO AGC setting
+|DDCO LFE LFP(DDCOLFE):  |DDCO AGC setting
+|dualmono(dm):           |dual-mono steup
+|EAC3(eac3):             |E-ac3 raw enable
+|upload(up):             |Upload data enable
+|uploadinit(upi):        |Upload data init
+|uploaddump(upd):        |Upload data dump
+|encmode(enc):           |Set Encode mode
+|adupdate(adupdate):     |ad fade pan update setup
+|adfade(adfade):         |ad fade setup
+|adpan(adpan):           |ad pan setup
+|adpanfaden(adpanfaden): |ad pan fade enable
+|sbcdump(sbcd):          |SBC Encode Test
+|adcdump(adcd):          |SBC Encode Test
+|postq(pq):              |Post-Proc Query
+|g726dec(g726dec):       |G726 decoder setting
+|check sum pbD(csum):    |check sum _pbD
+
+<h4 id="src_volume_query">svq</h4>
+
+查询各个通道的prescale数值。如何设置prescale？[点我](#sv)
+<h4 id="src_volume">sv</h4>
+
+设置prescale命令，命令组成为：sv + 解码器ID + 通道 + 数值
+```
+Usage: sv [decoder id] [source] [value]
+[decoder id] 0:FIRST 1:SECOND 2:THIRD 3: 4TH
+[source #]      0:OTHERS, 1:DIGITAL, 2:ANALOG, 3:SPDIF
+                4:LINE_IN, 5:HDMI, 6:MEMORY 7: BUFAGT 8: FEEDER 9: MM
+                10:LINE_IN2, 11:LINE_IN3
+[volume]        -128~36     every 0.5dB per step
+                  -128:  -64    dB
+                  -127:  -63.5 dB
+                  -126:  -63    dB
+                     .       .
+                     .       .
+                     .       .
+                     0:    0     dB
+                     .       .
+                     .       .
+                     .       .
+                    36:   18   dB
+CLI Command Return Value (-1)
+```
+例如设置DTV prescal值为3：sv 0 1 3
+<h4 id="ch_vol_gain">cvg</h4>
+
+可以通过 `DTV.aud.uop>cvg q` 查询各个频道的LinOut幅值。
+`DTV.aud.uop>cvg`命令信息有:
+```
+Usage: cvg [decoder id] [channel] [gain] or cvg q
+[decoder id]     0:FIRST                 1:SECOND
+[channel #]      0:L, 1:R, 2:LS, 3:RS, 4:C, 5:SUBWOOFER,
+                 6:Bypass L, 7: Bypass R, 8: Downmix L, 9: Dowmix R
+[gain]           -128 ~ 96,  every 0.5dB per step
+                 -128:  -64   dB
+                 -127:  -63.5 dB
+                 -126:  -63   dB
+                     .        .
+                     .        .
+                     .        .
+                    0:    0   dB
+                    1:    0.5 dB
+                     .        .
+                     .        .
+                   96:   48   dB
+CLI Command Return Value (-1)
+```
+设置lineout幅度命令为：cvg 0 6 2   (这里比较特别的是，设置了一边声道之后另外一边也跟着生效的，所以调试的时候只需要调一边声道就可以)
+
+<h4 id="aproc">aproc(a)</h4>
+
+|命令|命令解释|
+|:---------------|:---------------|
+|init(i):                |aproc task init ex. init
+|pc:                     |Get aproc pc ex. pc
+|reads(r):               |Read aproc ex. reads [addr]
+|writes(w):              |Write aproc ex. write [addr] [data]
+|open(o):                |command: open
+|close(c):               |command: close
+|notifyadsp(nod):        |command: notify adsp
+|writeadsp(wd):          |command: write adsp
+|regread(rr):            |Reg read aproc ex. reads [addr]
+|refwrite(rw):           |Reg write aproc ex. write [addr] [data]
+|qmem(qm):               |memory map query
+|enable(enable):         |enable/disable audio processor
+|ice(ice):               |connect ICE
+|modctrl(modctrl):       |module control
+|poweron(pon):           |aproc power-on
+|powerdown(pdown):       |aproc power-down
+|reset(reset):           |aproc reset test
+|amxier(amx):            |audio processor amixer command
+|admix(ad):              |post-processing AD mixing
+|iec(iec):               |audio processor iec command
+|query(q):               |query aproc
+|mixsound(ms):           |Aproc MixSound Test
+|upload(up):             |Aproc Upload Test
+|riscpost(rp):           |Aproc RiscPost Test
+|aproc(acmd):            |Ask APROC AVSync Command
+|logid(ld):              |Print Log for which decoder
+|syncinfo(si):           |List AVSync information
+|2.2/4.0 sel(chs):       |2.2/4.0 out select
+|amixer mute(am):        |amixer mute setting
+|volume(vol):            |audio processor volume command
+|[sound effect(se)](#sound_effect)       |audio processor sound effect command
+|sound speed(speed):     |audio processor sound speed command
+|Test DrvCust AQ(aq):    |Test Flash AQ
+|DrvCust AQ Key(key):    |Test Flash AQ Key
+|Fade In/Out(fade):      |Fade In / Fade Out Function
+|queryGlobleInfo(qgi):   |get aproc globle def info
+|bypass(b):              |Bypass dsp pro,data output directly
+
+<h4 id="sound_effect">sound effect(se)</h4>
+
+|命令|命令解释|
+|:---------------|:---------------|
+|[BassTreble(pbt)](#BassTreble)        |post-processing Bass Treble
+|Balancer(blc):          |Balancer setting
+|Bass Management(bmang): |Bass Managemant setting
+|[SP AVC(avc)](#SP_AVC)            |Speaker Band0 AVC setting
+|Virtual Surround(mvs):  |Virtual Surround Setting
+|Virtual Bass(mvb):      |Virtual Bass setting
+|PEQ(peq):               |PEQ setting
+|[DRC Limiter(dl)](#DRC_Limiter)        |DRC limiter setting
+|High Pass Filter(hpf):  |Speaker HPF setting
+|EQ(eq):                 |EQ setting
+|Eq Spectrum(spec):      |EQ spectrum enable
+|monomix(monomix):       |post-processing Mono mixing
+|postq(pq):              |post-processing query
+|3 band DRC(3drc):       |3band DRC setting
+|1 band DRC(1drc):       |1band DRC setting
+
+<h4 id="DRC_Limiter">DRC Limiter(dl)</h4>
+
+```
+Usage: dl [Idx][type][val]
+Idx         : Idx 0~3 : SP, SW, LSRS, HP
+Flag        : type= 0, val= 1 enable, = 0 disable,
+TargetLevel : type= 1, val= (0x7ff, 0x3fffff) -48dB ~ +18dB, 0x7ffff = 0dB
+AttackStep  : type= 2, val= (0x1, 0x7fffffff) 0.0000014 dB/ms ~ 192 dB/ms
+ReleaseStep : type= 3, val= (0x1, 0x7fffffff) 0.0000014 dB/ms ~ 192 dB/ms
+SetRatio    : type= 4, val= (0x0, 0x7ffff) 0x0= infinite:1, 0x7ffff = 1:1. Linear ratio
+SilenceLevel: type= 5, val= (0x0, 0x7ffff) 0x7= -96dB, 0x7ffff= 0dB, 0x0= no silenece level control Linear ratio
+MaxExpandGain:type= 6, val= (0x0, 0x7fffff) 0x2fffff= +6dB, 0x7fffff= +16dB, 0x7ffff= 1dB, 0x0= no expanding
+PostGain    : type= 7, val= (0x0, 0x7fffff) 0x0= off, 0x1 = -102 dB, 0x7fffff = 36dB
+HoldPeriod  : type= 8, val= (0x0, 0x1000) 0x0 = 0 ms, 0x200 = 5.46 s. Step = 1.33 ms
+DetPeriod   : type= 9, val= (0x0, 0x1000) 0x0 = 0 ms, 0x200 = 5.46 s. Step = 1.33 ms
+ProcMode    : type= a, val=
+SgainPeriod : type= b, val= (0x0, 0x1000) 0x0 = 0 ms, 0x200 = 5.46 s. Step = 1.33 ms
+CLI Command Return Value (-1)
+```
+Idx：不同通道，喇叭耳机
+主要关注TargetLevel，就是drc值
+例如调整耳机drc值：dl [Idx][type][val]                dl 3 1 0x6ffff
+
+<h4 id="SP_AVC">SP AVC(avc)</h4>
+
+```
+DTV.aud.a.se>avc
+[Query Info]AVC Enable: 0x0
+TargetLevel: 0x13000, AttackRate: 0xfffff, ReleaseRate: 0x800, MaxExpand 0x0
+Usage1: avc [item] [val]
+        item select => TargetLevel:0 AttackRate:1
+        item select => ReleaseRate:2 MaxExpand:3
+        val => TargetLevel  (0x7ff, 0x3fffff) -48dB ~ +18dB, 0x7ffff = 0dB
+        val => AttackRate   (0x1, 0x7fffffff) 0.0000014 dB/ms ~ 192 dB/ms
+        val => ReleaseRate  (0x1, 0x7fffffff) 0.0000014 dB/ms ~ 192 dB/ms
+        val => MaxExpand    (0x7ffff, 0x7ffff0) 0x9ffff = +2dB, 0xfffff= +6dB, 0x7ffff= 0dB, no expanding
+Usage2: avc [Flag]
+        Flag => On:0x1, Off: 0x0
+CLI Command Return Value (-1)
+```
+
+开关：avc 0x1、avc 0x0
+设置参数：avc [item] [val]    //按照上图提示设置对应值，例如avc 0 0x12000
+对应代码位置（5510目前avc是关闭的）：
+
+<h4 id="BassTreble">BassTreble(pbt)</h4>
+
+高低音的调节
+喇叭调整SP Bass、SP Treble，耳机调整HP Bass、HP Treble
+Type：滤波器类型，LSF_HI和HSF_HI没写出来，分别是0x103/0x104
+Fc：中心频率
+Q：影响范围
+Gain：增益
+用法：pbt 0 0x103 300 0x300000 0
