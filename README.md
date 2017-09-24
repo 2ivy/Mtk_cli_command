@@ -275,7 +275,7 @@ Please enter 'd' when do down test
 ```
 如提示，按下**u键**表示数值会向上调整，按下**d键**表示数值会向下调整。按下**Esc键 + Enter键**退出调试。
 
-<h4 id="ps_hsynctest">ps hsynctest(ht)</h4>
+<h4 id="ps_vsynctest">ps vsynctest(vt)</h4>
 
 可操作参数信息如下，分别是调节VTotal、Frontporch、Backporch：
 ```
