@@ -18,50 +18,50 @@
 |[do](#do)                     |Repeat command
 |[alias(a)](#alias)               |Add/Show current alias
 |[ls](#ls)                   |Recursive list all commands
-|[read(r)](#read)                |Memory read(word)
-|[write(w)](#writer)                 |Memory write(word)
-|[customer(cust)](#customer)           |Get customer name
-|[basic_(b)](#basic_)                |basic command
-|[linuxmode(l)](#linuxmode)             |Turn on/off linux mode
-|[mtktool(0)](#mtktool)               |mtktool command
-|[osd](#osd)                      |Osd driver
+|read(r)                |Memory read(word)
+|write(w)                 |Memory write(word)
+|customer(cust)           |Get customer name
+|basic_(b)                |basic command
+|linuxmode(l)             |Turn on/off linux mode
+|mtktool(0)               |mtktool command
+|osd                      |Osd driver
 |[pmx](#pmx)                     |pmx command
-|[sif](#sif)                      |Sif command
+|sif                      |Sif command
 |[pwm](#pwm)                      |Pwm command
 |[eeprom](#eeprom)                   |Eeprom command
-|[nim](#nim)                      |Nim command
-|[ir](#ir)                       |Ir command
-|[rtc(rtc)](#rct)                 |RTC commands
+|nim                      |Nim command
+|ir                       |Ir command
+|rtc(rtc)                 |RTC commands
 |[aud](#aud)                      |Aud command
-|[nptv(n)](#nptv)                  |Nptv command
-|[av](#av)                     |Audio/Video command
-|[vdp](#vdp)                      |Video plane command
-|[prescale](#prescale)                 |Prescale cmd
-|[fbm](#fbm)                      |Frame buffer manager command
-|[dbs](#dbs)                      |Dbs command
-|[mpv](#mpv)                    |MPEG Video Decoder command
-|[vdec](#vdec)                   |Vdec command
-|[tcon](#tcon)                     |Tcon command
-|[ptp](#ptp)                      |PTP control command
-|[muxer(mx)](#muxer)              |MUXER command
-|[dmx(d)](#dmx)                   |Demux commands
-|[memtest](#memtest)                  |Memory test
-|[cec](#cec)                      |HDMI CEC test
-|[cbus](#cbus)                     |HDMI CBUS test
-|[pdwnc(pdwnc)](#pdwnc)             |PDWNC commands
-|[jpg](#jpg)                    |Jpeg command
-|[gpio](#gpio)                     |Gpio interface
-|[mid](#mid)                    |Memory intrusion detection
-|[swdmx](#swdmx)                  |SWDMX command
-|[feeder](#feedr)                 |FEEDER command
-|[tve](#tve)                      |Tve command
-|[timeprofile](#timeprofile)              |timeprofile test
-|[bim](#bim)                      |BIM module test
-|[pcmcia(p)](#pcmcia)                |Pcmcia command
-|[os](#os)                     |OS command
-|[linux](#linux)                  |Linux commands
-|[gfx](#gfx)                    |Gfx command
-|[imgrz](#imgrz)                  |Imgrz command
+|nptv(n)                  |Nptv command
+|av                     |Audio/Video command
+|vdp                      |Video plane command
+|prescale                 |Prescale cmd
+|fbm                      |Frame buffer manager command
+|dbs                      |Dbs command
+|mpv                    |MPEG Video Decoder command
+|vdec                   |Vdec command
+|tcon                     |Tcon command
+|ptp                      |PTP control command
+|muxer(mx)              |MUXER command
+|dmx(d)                   |Demux commands
+|memtest                  |Memory test
+|cec                      |HDMI CEC test
+|cbus                     |HDMI CBUS test
+|pdwnc(pdwnc)             |PDWNC commands
+|jpg                    |Jpeg command
+|gpio                     |Gpio interface
+|mid                    |Memory intrusion detection
+|swdmx                  |SWDMX command
+|feeder                 |FEEDER command
+|tve                      |Tve command
+|timeprofile              |timeprofile test
+|bim                      |BIM module test
+|pcmcia(p)                |Pcmcia command
+|os                     |OS command
+|linux                  |Linux commands
+|gfx                    |Gfx command
+|imgrz                  |Imgrz command
 
 
 第一级别命令用法解释
@@ -78,135 +78,18 @@
 <h4 id="ls">ls</h4>
 
 `ls` 命令用来列出本页所有可用命令，直接按 `Enter` 也是一样的效果。
-<h4 id="read">read(r)</h4>
-
-`read` 命令
-<h4 id="write">write(w)</h4>
-
-`write` 命令
 <h4 id="customer">customer(cust)</h4>
 
 `customer` 用于获取客户名称
-<h4 id="basic_">basic_(b)</h4>
-
-`basic_` 命令
-<h4 id="linuxmode">linuxmode(l)</h4>
-
-`linuxmode` 命令
-<h4 id="mtktool">mtktool(0)</h4>
-
-`mtktool` 命令
-<h4 id="osd">osd</h4>
-
-`osd` 命令
 <h4 id="pmx">pmx</h4>
 
 `pmx` 命令用来修改屏参，PQ相关的参数。[详见](#pmx2)
-<h4 id="sif">sif</h4>
-
-`sif` 命令
-<h4 id="pwm">pwm</h4>
-
-`pwm` 命令
 <h4 id="eeprom">eeprom</h4>
 
 `eeprom` 命令
-<h4 id="nim">nim</h4>
-
-`nim` 命令
-<h4 id="ir">ir</h4>
-
-`ir` 命令
-<h4 id="rtc">rtc(rtc)</h4>
-
-`rtc` 命令
 <h4 id="aud">aud</h4>
 
 `aud` 命令
-<h4 id="nptv">nptv(n)</h4>
-
-`nptv` 命令
-<h4 id="av">av</h4>
-
-`av` 命令
-<h4 id="vdp">vdp</h4>
-
-`vdp` 命令
-<h4 id="prescale">prescale</h4>
-
-`prescale` 命令
-<h4 id="fbm">fbm</h4>
-
-`fbm` 命令
-<h4 id="dbs">dbs</h4>
-
-`dbs` 命令
-<h4 id="mpv">mpv</h4>
-
-`mpv` 命令
-<h4 id="vdec">vdec</h4>
-
-`vdec` 命令
-<h4 id="tcon">tcon</h4>
-
-`tcon` 命令
-<h4 id="ptp">ptp</h4>
-
-`ptp` 命令
-<h4 id="muxer">muxer(mx)</h4>
-
-`muxer` 命令
-<h4 id="dmx">dmx(d)</h4>
-
-`dmx` 命令
-<h4 id="memtest">memtest</h4>
-
-`memtest` 命令
-<h4 id="cec">cec</h4>
-
-`cec` 命令
-<h4 id="cbus">cbus</h4>
-
-`cbus` 命令
-<h4 id="pdwnc">pdwnc(pdwnc)</h4>
-
-`pdwnc` 命令
-<h4 id="jpg">jpg</h4>
-
-`jpg` 命令
-<h4 id="gpio">gpio</h4>
-
-`gpio` 命令
-<h4 id="swdmx">swdmx</h4>
-
-`swdmx` 命令
-<h4 id="feeder">feeder</h4>
-
-`feeder` 命令
-<h4 id="tve">tve</h4>
-
-`tve` 命令
-<h4 id="timeprofile">timeprofile</h4>
-
-`timeprofile` 命令可以开启timeprofit测试
-<h4 id="bim">bim</h4>
-
-`bim` 命令可以开启BIM模式测试
-<h4 id="pcmcia">pcmcia(p)</h4>
-
-`pcmcia` 命令页
-<h4 id="os">os</h4>
-
-进入`os` 命令页
-<h4 id="linux">linux</h4>
-
-进入`linux` 命令页
-<h4 id="gfx">gfx</h4>
-
-进入`gfx` 命令页
-<h4 id="imgrz">imgrz</h4>
-
-进入`imgrz` 命令页
 
 ---
 ---
@@ -264,50 +147,141 @@ DTV.pmx>
 
 |命令|命令解释|
 |:-----------|:------------|
-|[bg]                     |background color
-|[po]                     |plane order
-|[poa]                    |plane order array
-|[pma](#pma)                    |plane mix alpha
+|bg                     |background color
+|po                     |plane order
+|poa                    |plane order array
+|pma                    |plane mix alpha
 |[backlt(bl)](#backlt)             |backlight
 |[driving(d)](#driving)             |lvds driving current
-|[vcm(vcm)](#vcm)               ||lvds common voltage
+|vcm(vcm)               ||lvds common voltage
 |[spread(s)](#spread)              |lvds spread spectrum
-|[panel(p)](#panel)               |panel resolution
-|[driverini(di)](#driverini)          |panel driver init
+|panel(p)               |panel resolution
+|driverini(di)          |panel driver init
 |[powersequence(ps)](#powersequence)      |adjust power sequence
-|[ns(ns)](#ns)                 |NS lvds format
-|[jeida(jeida)](#jeida)           |JEIDA lvds format
-|[SpecialNs(sns)](#SpecialNs)         |Special NS lvds format
-|[dnie(dnie)](#dnie)             |ByPass DNIE
-|[10bit(10bit)](#10bit)           |switch LVDS to 10bit
-|[swap(swap)](#swap)             |even odd channel swap
-|[lvdsmod](#)                |set LVDS Tx mode
-|[qlvdsmod](#)               |query LVDS Tx mode
-|[SetCtrlWordStep(cws)](#)   |Nptv Set Control Word Step
-|[OutputStageDumpEnable(os   |Enable OutputStage Dump
-|[ForceFrameRate(ffr)](#)    |Nptv force frame rate
-|[ForceFreeRun(fr)](#)       |Nptv force free run
-|[borderonoff(boo)](#)       |OSTG border
-|[bordercolor(bc)](#)        |OSTG border color
-|[borderparameter(bparam)](#)|OSTG border position
-|[panelifmask(pim)](#)       |Set Panel interface allowed mask
-|[ATERM_ATVO(ATERM_ATVO)](#) |PmxLVDS_ATERM_ATVO_Setting
-|[ATERM_ATVO_Restore(ATERMPmx|LVDS_ATERM_ATVO_Restore
-|[ATVO_Set(ATVO_Set)](#)     |PmxLVDS_ATVO_Set
-|[APSRC_Set(APSRC_Set)](#)   |PmxLVDS_APSRC_Set
-|[ANSRC_Set(ANSRC_Set)](#)   |PmxLVDS_ANSRC_Set
-|[PADPD_Set(PADPD_Set)](#)   |PmxLVDS_PADPD_Set
-|[RESET_Set(RESET_Set)](#)   |PmxLVDS_RESET_Set
-|[LS_Set(LS_Set)](#)         |PmxMLVDS_LS_Set
-|[TestMODE_Set(TestMODE_Se   |PmxMLVDS_TestMODE_Set
-|[VCOPhase_SEL(VCOPhase_SE   |PmxDrvVCOPhase_SEL
-|[DDDSFreeRun(DDDSFreeRun)   |PmxSET_DDDSFreeRun
-|[DDDSErrorLimit(dddsel)](#) |PmxSET_DDDSErrorLimit
-|[controlword(ctlw)](#)      |Set control word
-|[controlword2(ctlw2)](#)    |Set control word2
-|[scanningpwm(scanpwm)](#)   |Set scanning pwm
-|[scanstatus(scanpwms)](#)   |Get scanning status
-|[scanstep(scanstep)](#)     |Set scanning step control
-|[scantarget(scantarget)](#) |Set scanning step target
+|ns(ns)                 |NS lvds format
+|jeida(jeida)           |JEIDA lvds format
+|SpecialNs(sns)         |Special NS lvds format
+|dnie(dnie)             |ByPass DNIE
+|10bit(10bit)           |switch LVDS to 10bit
+|swap(swap)             |even odd channel swap
+|lvdsmod                |set LVDS Tx mode
+|qlvdsmod               |query LVDS Tx mode
+|SetCtrlWordStep(cws)   |Nptv Set Control Word Step
+|OutputStageDumpEnable(os   |Enable OutputStage Dump
+|[ForceFrameRate(ffr)](#ForceFrameRate)    |Nptv force frame rate
+|ForceFreeRun(fr)       |Nptv force free run
+|borderonoff(boo)       |OSTG border
+|bordercolor(bc)        |OSTG border color
+|borderparameter(bparam)|OSTG border position
+|panelifmask(pim)       |Set Panel interface allowed mask
+|[ATERM_ATVO(ATERM_ATVO) |PmxLVDS_ATERM_ATVO_Setting
+|ATERM_ATVO_Restore(ATERMPmx|LVDS_ATERM_ATVO_Restore
+|ATVO_Set(ATVO_Set)     |PmxLVDS_ATVO_Set
+|APSRC_Set(APSRC_Set)   |PmxLVDS_APSRC_Set
+|ANSRC_Set(ANSRC_Set)   |PmxLVDS_ANSRC_Set
+|PADPD_Set(PADPD_Set)   |PmxLVDS_PADPD_Set
+|RESET_Set(RESET_Set)   |PmxLVDS_RESET_Set
+|LS_Set(LS_Set)         |PmxMLVDS_LS_Set
+|TestMODE_Set(TestMODE_Se   |PmxMLVDS_TestMODE_Set
+|VCOPhase_SEL(VCOPhase_SE   |PmxDrvVCOPhase_SEL
+|DDDSFreeRun(DDDSFreeRun)   |PmxSET_DDDSFreeRun
+|DDDSErrorLimit(dddsel) |PmxSET_DDDSErrorLimit
+|controlword(ctlw)      |Set control word
+|controlword2(ctlw2)    |Set control word2
+|scanningpwm(scanpwm)   |Set scanning pwm
+|scanstatus(scanpwms)   |Get scanning status
+|scanstep(scanstep)     |Set scanning step control
+|scantarget(scantarget) |Set scanning step target
 
+<h4 id="backlt">backlt(bl)</h4>
 
+backlight 调节背光，例如：bl 255 200。合法构造如下：
+```
+DTV.pmx.s>bl
+Args: backlight(0~255) [freq(Hz)]
+CLI Command Return Value (-1)
+DTV.pmx.s>
+```
+<h4 id="driving">driving(d)</h4>
+
+调节驱动电流，例如：d 8。合法构造如下：
+```
+DTV.pmx.s>d
+current value=5
+Args: value(0~15)
+CLI Command Return Value (-1)
+DTV.pmx.s>
+```
+<h4 id="spread">spread(s)</h4>
+
+调节lvds频展，例如：s 30 30 【工厂菜单可调节】。合法构造如下：
+```
+current range = 40
+current modulation rate = 30000
+Args: {value(20K~100K), value(0~60)} | {rate(Hz), range(0.1%)}
+CLI Command Return Value (-1)
+DTV.pmx.s>
+```
+<h4 id="powersequence">powersequence(ps)</h4>
+
+调节开关时序，例如：ps 10 20 30 40，调完后使用上面提到的开关屏命令验证，注意，开关机是不保存的。合法构造如下：
+```
+Args: LvdsOn, BacklightOn, BacklightOff, LvdsOff (unit:10ms)
+CLI Command Return Value (-1)
+DTV.pmx.s>
+```
+<h4 id="ForceFrameRate">ForceFrameRate(ffr)</h4>
+
+调节输出频率，例如：ffr 50。合法构造如下：
+```
+Arg: ubFrameRage, 0:disable
+DTV.pmx.s>
+```
+
+---
+
+<h3 id="post_scaler">post scaler(ps)</h4>
+
+调节屏参里的HTotal、VTotal、Clock等，相关信息如下：
+|命令|命令解释|
+|:--------------|:-------------|
+|[query status(q)](#query_status)        |query post scaler status
+|[ps hsynctest(ht)](#ps_hsynctest)       |hsync scaler timing test
+|[ps vsynctest(vt)](#ps_vsynctest)       |vsync scaler timing test
+|[ps set_data trigger(st)](#ps_set_data_trigger) |set data trigger
+
+<h4 id="query_status">query status(q)</h4>
+
+查询当前的HTotal、VTotal、Clock、out frame rate 等，方法`DTV.pmx.ps>q`
+
+<h4 id="ps_hsynctest">ps hsynctest(ht)</h4>
+
+可操作参数信息如下，分别是调节HTotal、Frontporch、Backporch：
+```
+DTV.pmx.ps>vt
+Arg: ucOnOff  (Panel Vsync Test)
+type [0] Sync Width change
+type [1] Sync Front porch change
+type [2] Sync Back porch change
+```
+例如 输入 `DTV.pmx.ps>ht 1` 进入 `Htotal` 调试界面
+```
+DTV.pmx.ps>ht 1
+Begin to panel Hsync test
+Htotal=2200, Hfp=16,Hwid=30 HBp=234 Hactive=1920
+Please enter 'u' when do up test
+Please enter 'd' when do down test
+```
+如提示，按下**u键**表示数值会向上调整，按下**d键**表示数值会向下调整。按下**Esc键 + Enter键**退出调试。
+
+<h4 id="ps_hsynctest">ps hsynctest(ht)</h4>
+
+可操作参数信息如下，分别是调节VTotal、Frontporch、Backporch：
+```
+DTV.pmx.ps>ht
+Arg: ucOnOff  type (Panel Hsync Test)
+type [0] Sync Width change
+type [1] Sync Front porch change
+type [2] Sync Back porch change
+```
+调试方法如上实例。
