@@ -409,7 +409,7 @@ backlight 调节背光，例如：bl 255 200。合法构造如下：
 	[decoder id] 0:FIRST 1:SECOND 2:THIRD 3: 4TH
 	[source #]      0:OTHERS, 1:DIGITAL, 2:ANALOG, 3:SPDIF
                     4:LINE_IN, 5:HDMI, 6:MEMORY 7: BUFAGT 8: FEEDER 9: MM
-               	   10:LINE_IN2, 11:LINE_IN3
+                   10:LINE_IN2, 11:LINE_IN3
 	[volume]        -128~36     every 0.5dB per step
                   -128:  -64    dB
                   -127:  -63.5 dB
@@ -430,23 +430,23 @@ backlight 调节背光，例如：bl 255 200。合法构造如下：
 可以通过 `DTV.aud.uop>cvg q` 查询各个频道的LinOut幅值。
 `DTV.aud.uop>cvg`命令信息有:
 
-	Usage: cvg [decoder id] [channel] [gain] or cvg q
-	[decoder id]     0:FIRST                 1:SECOND
-	[channel #]      0:L, 1:R, 2:LS, 3:RS, 4:C, 5:SUBWOOFER,
+    Usage: cvg [decoder id] [channel] [gain] or cvg q
+    [decoder id]     0:FIRST                 1:SECOND
+    [channel #]      0:L, 1:R, 2:LS, 3:RS, 4:C, 5:SUBWOOFER,
                      6:Bypass L, 7: Bypass R, 8: Downmix L, 9: Dowmix R
-	[gain]           -128 ~ 96,  every 0.5dB per step
-                 	 -128:  -64   dB
-          	         -127:  -63.5 dB
-        	         -126:  -63   dB
-        	             .        .
-        	             .        .
-       	                 .        .
-       	                0:    0   dB
-      	                1:    0.5 dB
-         	             .        .
-        	             .        .
-         	           96:   48   dB
-	CLI Command Return Value (-1)
+    [gain]           -128 ~ 96,  every 0.5dB per step
+                     -128:  -64   dB
+                     -127:  -63.5 dB
+                     -126:  -63   dB
+                         .        .
+                         .        .
+                         .        .
+                        0:    0   dB
+                        1:    0.5 dB
+                         .        .
+                         .        .
+                       96:   48   dB
+    CLI Command Return Value (-1)
 
 设置lineout幅度命令为：cvg 0 6 2   (这里比较特别的是，设置了一边声道之后另外一边也跟着生效的，所以调试的时候只需要调一边声道就可以)
 
