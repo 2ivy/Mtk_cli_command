@@ -1,5 +1,5 @@
 
-本文列举的当前会遇到的所有cli命令（截止到2017-09-22），后续有更新请提示我，我会更新
+本文列举的当前会遇到的所有cli命令
 =======
 
 准备工作
@@ -19,7 +19,7 @@
 |[alias(a)](#alias)               |Add/Show current alias|
 |[ls](#ls)                   |Recursive list all commands|
 |read(r)                |Memory read(word)|
-|write(w)                 |Memory write(word)|
+|[write(w)](#write)                 |Memory write(word)|
 |customer(cust)           |Get customer name|
 |basic_(b)                |basic command|
 |linuxmode(l)             |Turn on/off linux mode|
@@ -34,34 +34,23 @@
 |rtc(rtc)                 |RTC commands
 |[aud](#aud)                      |Aud command
 |nptv(n)                  |Nptv command
-|av                     |Audio/Video command
 |vdp                      |Video plane command
 |prescale                 |Prescale cmd
 |fbm                      |Frame buffer manager command
 |dbs                      |Dbs command
-|mpv                    |MPEG Video Decoder command
-|vdec                   |Vdec command
 |tcon                     |Tcon command
-|ptp                      |PTP control command
-|muxer(mx)              |MUXER command
+|[ptp](#ptp)                      |PTP control command
 |dmx(d)                   |Demux commands
 |memtest                  |Memory test
 |cec                      |HDMI CEC test
 |cbus                     |HDMI CBUS test
 |pdwnc(pdwnc)             |PDWNC commands
-|jpg                    |Jpeg command
 |gpio                     |Gpio interface
-|mid                    |Memory intrusion detection
-|swdmx                  |SWDMX command
-|feeder                 |FEEDER command
 |tve                      |Tve command
 |timeprofile              |timeprofile test
 |bim                      |BIM module test
 |pcmcia(p)                |Pcmcia command
-|os                     |OS command
-|linux                  |Linux commands
 |gfx                    |Gfx command
-|imgrz                  |Imgrz command
 
 
 第一级别命令用法解释
@@ -77,19 +66,38 @@
 `alias` 用于对你常用的命令取别名。目前已经对很多较长的命令设置了别名，括号中的的简写就是，**可以使用括号中的简写代替单条命令**。
 <h4 id="ls">ls</h4>
 
-`ls` 命令用来列出本页所有可用命令，直接按 `Enter` 也是一样的效果。
+`ls` 命令用来列出所有可用命令，直接按 `Enter`则是列出当前页所有命令。
+<h4 id="write">write</h4>
+
+`write` + 具体内存地址，配合其他指令可以实现特定的功能。比如[查看CPU温度](#getCPUTmp)
+
 <h4 id="customer">customer(cust)</h4>
 
-`customer` 用于获取客户名称
+`customer` 用于获取客户名称，作用如下。
+
+	DTV>cust
+	[cmtk / mtk]
+	DTV>
+	
 <h4 id="pmx">pmx</h4>
 
 `pmx` 命令用来修改屏参，PQ相关的参数。[详见](#pmx2)
 <h4 id="eeprom">eeprom</h4>
 
-`eeprom` 命令
+`eeprom` 命令，这个命令直接操作寄存器，目前用到主要是在换屏参时候。[详见](#panel)
 <h4 id="aud">aud</h4>
 
 `aud` 命令用来调试声音相关的，比较重要的一个命令。[详见](#aud2)
+<h4 id="ptp">ptp</h4>
+
+`ptp` 可以执行一系列的PTP指令集，需要配合其他命令一起使用，<p4 id="getCPUTmp">获取CPU温度</p4>：
+
+	DTV>w 0xf0028304 0xfffff809
+	DTV>ptp.t
+会返回
+
+	CPU temp = 60200
+结果除以1000就是实际温度，如上是60度，一般TV下播放且散热正常的情况下基本小于80度，遇到莫名其妙一直重启的问题，可以先读取下节点温度，芯片设置大于**115度**时会自动重启。
 
 ---
 ---
@@ -124,11 +132,16 @@
 
 <h4 id="enable">enable(e)</h4>
 
-开屏&关屏，常用于验证调的开关机时序是否OK，使用方法：e 0 / e 1
+开屏&关屏，常用于验证调的开关机时序是否OK，使用方法：
+	
+	DTV.pmx>e 0 //关屏
+	DTV.pmx>e 1 //开屏
+
 <h4 id="SetCustFRC">SetCustFRC(scf)</h4>
 
 用于切换输出频率，使用方法：scf + 参数 可选参数为：
 
+	DTV.pmx>scf
 	Usage: scf <CustFRCMask>
 	Set customized FRC
 	0x0: Normal
@@ -155,7 +168,7 @@
 |[driving(d)](#driving)             |lvds driving current
 |vcm(vcm)               |lvds common voltage
 |[spread(s)](#spread)              |lvds spread spectrum
-|panel(p)               |panel resolution
+|[panel(p)](#panel)               |panel resolution
 |driverini(di)          |panel driver init
 |[powersequence(ps)](#powersequence)      |adjust power sequence
 |ns(ns)                 |NS lvds format
@@ -216,16 +229,21 @@ backlight 调节背光，例如：bl 255 200。合法构造如下：
 
 调节lvds频展，例如：s 30 30 【工厂菜单可调节】。合法构造如下：
 
+	DTV.pmx.s>spread
 	current range = 40
 	current modulation rate = 30000
 	Args: {value(20K~100K), value(0~60)} | {rate(Hz), range(0.1%)}
 	CLI Command Return Value (-1)
 	DTV.pmx.s>
+<h4 id="panel">panel(p)</h4>
+
+更换屏参命令，可更换的屏参列表见[pmx.s.l](#list)命令。panel命令使用的方法是直接`p + 序号`，但是注意这个是更换屏参的第二步，第一步需要使用[epprom](#eeprom)命令清除屏参的寄存器`eeprom.bw 0x1429 0xfe 4`。
 
 <h4 id="powersequence">powersequence(ps)</h4>
 
-调节开关时序，例如：ps 10 20 30 40，调完后使用上面提到的开关屏命令验证，注意，开关机是不保存的。合法构造如下：
+调节开关时序，例如：ps 10 20 30 40，调完后使用上面提到的[开关屏命令](#enable)验证，注意，**开关机是不保存**的。合法构造如下：
 
+	DTV.pmx.s>ps
 	Args: LvdsOn, BacklightOn, BacklightOff, LvdsOff (unit:10ms)
 	CLI Command Return Value (-1)
 	DTV.pmx.s>
@@ -234,6 +252,7 @@ backlight 调节背光，例如：bl 255 200。合法构造如下：
 
 调节输出频率，例如：ffr 50。合法构造如下：
 
+	DTV.pmx.s>ffr
 	Arg: ubFrameRage, 0:disable
 	DTV.pmx.s>
 
